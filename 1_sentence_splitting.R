@@ -13,7 +13,7 @@ library(tidyverse)
 
 ##################################################
 
-# This function cleans the raw flora descriptions and prepares it for the sentence splitting function
+# This function cleans the raw flora descriptions and prepares it for the sentence splitting process
 
 flora_cleaning = function(q){
   
@@ -26,7 +26,7 @@ flora_cleaning = function(q){
   q$original_text = q$description
   
   # Preparation for sentence splitting:
-  # get rid of abbreviated genus names so the full stop isn't mistaken for the end of a sentence
+  # remove any abbreviated genus names so the full stop isn't mistaken for the end of a sentence
   q$description = gsub("[A-Z]\\. ", "", q$original_text)
   
   # convert to lower case
@@ -41,7 +41,7 @@ flora_cleaning = function(q){
   q$description = gsub("e\\.g\\.", "e g", q$description)
   q$description = gsub("fig\\.", "figure", q$description)
   
-  # If there's a full stop and no space between each of the glossary terms and the next sentence, add in a space so the sentence splitting works
+  # If there's a full stop and no space between each of the glossary terms and the next sentence (a typo), add in a space so the sentence splitting works
   for (i in 1:length(g$words)){
     q$description = gsub(str_c("\\.", g$words_original[i]), str_c(". ", g$words_original[i]), q$description)
   }
@@ -54,9 +54,6 @@ flora_cleaning = function(q){
   q$description = gsub("inflorescence-bearing", "Inflorescence-bearing", q$description)
   q$description = gsub("leaf scars", "leaf-scars", q$description)
   q$description = gsub("vegetative culms", "Vegetative culms", q$description)
-  # reduce the numbers of columns to only those you need
-  q = q %>% select(taxon_name, original_text, description)
-  
 
   return(q)
 }
@@ -65,7 +62,7 @@ flora_cleaning = function(q){
 
 ##################################################
 
-#####  Preparation for the glossary.csv file #######
+#####  Preparation for the glossary.csv file #####
 
 ##################################################
 
@@ -73,14 +70,15 @@ flora_cleaning = function(q){
 g = read.csv("glossary.csv")
 g = data.frame(words_original = c(g$singular, g$plural), organ = g$Plant_organ)
 g = g %>% filter(words_original != "") 
+
 # make all the search terms in the glossary.csv file only match to a space or punctuation at the start and end of the word and a plural "s" at the end of the word
 g$words = str_c("[\\s[:punct:]]", g$words_original, "[\\s[:punct:]s]")
 
-# create a unique list of categories that exist in the glossary. Should be edited to reflect the names and order of the categories
+# create a unique list of categories that exist in the glossary. Should be edited to reflect the names and order of the categories that you would like for the output
 tissue = c("form", "stem", "leaf", "flower", "seed_fruit", "root", "substrate_location")
 tissue_table = data.frame(organ = tissue)
 
-# create a vector of merged words to search for each category
+# create a vector of merged strings to search for each category
 word_searches = sapply(tissue, function(y){paste(g$words[g$organ == y], collapse="|")})
 
 # Add on one extra category for sentences you would like to not match to any category (be assigned to the category of the previous sentence)
@@ -138,7 +136,6 @@ names(word_searches1) = c(tissue, "blank")
     multiple = single %>% filter(number %in%  single$number[duplicated(single$number)])
     
     #if there are sentences with words from multiple categories in them:
-    
     if (nrow(multiple) != 0){
       
       # isolate unquee sentences
