@@ -81,6 +81,11 @@ trait_table = data.frame(trait_name = c(str_c(unique(t$trait_name), "_a"),
 
 trait_table_wide = trait_table %>% pivot_wider(names_from = trait_name, values_from = blank)
 
+##################################################
+
+#####  Start of trait extraction process #######
+
+##################################################
 
 # read in the floras which have been divided into the categories
 data = read.csv("Flora_of_Australia_split_sentences.csv", encoding="latin1")
@@ -132,8 +137,6 @@ new = data.frame()
   next()
   
   }
-  
-
   
   # Split into dataframes of different traits
   out_list <- split(temp, f = temp$trait_name)
