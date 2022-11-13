@@ -100,16 +100,6 @@ stem_growth_habit,bushy,bushy
 stem_growth_habit,spindly,spindly
 stem_growth_habit,open,open
 stem_growth_habit,arborescent,arborescent
-parasitic,parasitic,parasitic
-parasitic,parasitic,parasite
-parasitic,stem_parasitic,stemparasite
-parasitic,stem_parasitic,stemparasitic
-parasitic,root_parasitic,rootparasite
-parasitic,root_parasitic,rootparasitic
-parasitic,hemiparasitic,hemiparasite
-parasitic,hemiparasitic,hemiparasitic
-parasitic,hemiparasitic,hemiparasite
-parasitic,hemiparasitic,hemiparasitic
 sex_type,androdioecious,androdioecious
 sex_type,andromonoecious,andromonoecious
 sex_type,dioecious,dioecious
@@ -121,18 +111,3 @@ sex_type,polygamous,polygamous
 sex_type,polygamodioecious,polygamodioecious
 sex_type,polygamonoecious,polygamonoecious
 sex_type,trioecious,trioecious
-woodiness,woody_root,woody root
-woodiness,woody_root,woodytaproot
-woodiness,woody_root,rootstock woody
-woodiness,woody_root,woodyrootstock
-woodiness,woody_root,woody below
-woodiness,woody_root,rhizomewoody
-woodiness,woody_base,woodybase
-woodiness,woody_base,woodybased
-woodiness,woody_base,suffruticose
-woodiness,woody_base,suffrutescent
-woodiness,soft_wood,soft wood
-woodiness,soft_wood,weakwoody
-woodiness,soft_wood,somewhatwoody
-woodiness,soft_wood,herbaceouswoody
-woodiness,soft_wood,woodystems
