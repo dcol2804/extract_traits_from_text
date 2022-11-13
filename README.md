@@ -2,7 +2,7 @@
 
 A method for generating plant trait tables from flora textual descriptions
 
-This technique takes a .csv file of plant taxa names and their descriptions from 3000 taxa entries in Flora of Australia online (Flora_of_Australia.csv), splits each sentence and phrase into categories of plant form, stem,, leaf, flower, fruit/seed, root and substrate/location (1_sentence_splitting.R) and extracts some simple plant traits relating to plant form (2_extract_forms.R). 
+This technique takes a .csv file of plant taxa names and their descriptions from 300 taxa entries in Flora of Australia online (Flora_of_Australia.csv), splits each sentence and phrase into categories of plant form, stem,, leaf, flower, fruit/seed, root and substrate/location (1_sentence_splitting.R) and extracts some simple plant traits relating to plant form (2_extract_forms.R). 
 
 The sentence splitting technique uses a glossary of more than 200 botanical terms to categorise each sentence (glossary.csv). It takes a minute or two for the code to run.
 
