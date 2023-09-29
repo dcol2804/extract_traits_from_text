@@ -2,7 +2,7 @@
 
 A method for generating plant trait tables from flora textual descriptions
 
-This technique includes code used to download flora descriptions from the Vicflora online resource (1_download_taxon_descriptions.R). Flora and herbarium resources are constantly updating and innovating. Since I downloaded the descriptions shown here last year, the format of the Vicflora website has changed and the webscraping code posted here no longer works. However, the sample text of 300 taxa can be used to illustrate the trait extraction technique vic_flora_downloaded.csv. The following resources are useful starting points to learn about webscraping techniques and etiquette:
+This technique includes code used to download flora descriptions from the Vicflora online resource (1) (1_download_taxon_descriptions.R). Flora and herbarium resources are constantly updating and innovating. Since I downloaded the descriptions shown here last year, the format of the Vicflora website has changed and the webscraping code posted here no longer works. However, the sample text of 300 taxa can be used to illustrate the trait extraction technique vic_flora_downloaded.csv. The following resources are useful starting points to learn about webscraping techniques and etiquette:
 https://rvest.tidyverse.org/articles/rvest.html,
 https://www.datacamp.com/tutorial/r-web-scraping-rvest,
 https://www.r-bloggers.com/2020/04/tutorial-web-scraping-in-r-with-rvest).
